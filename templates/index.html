@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culinary Fusion Explorer</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Main View -->
+        <div id="main-view" class="main-view">
+            <div class="content-wrapper">
+                <h1 class="title">CULINARY FUSION EXPLORER</h1>
+                <p class="subtitle">Discover unexpected flavor harmonies</p>
+
+                <div class="fusion-container">
+                    <div class="cuisine-selector" id="cuisine1-container">
+                        <div class="cuisine-preview" id="cuisine1-preview">
+                            <span class="default-text">First Cuisine</span>
+                        </div>
+                        <button class="explore-btn" onclick="startSelection(1)">EXPLORE</button>
+                    </div>
+
+                    <div class="fusion-indicator">
+                        <div class="fusion-circle"></div>
+                        <span class="fusion-text">FUSION</span>
+                    </div>
+
+                    <div class="cuisine-selector" id="cuisine2-container">
+                        <div class="cuisine-preview" id="cuisine2-preview">
+                            <span class="default-text">Second Cuisine</span>
+                        </div>
+                        <button class="explore-btn" onclick="startSelection(2)">EXPLORE</button>
+                    </div>
+                </div>
+
+                <div id="create-button" class="create-button-container hidden">
+                    <button class="create-btn" onclick="showPreferences()">
+                        <span class="btn-text">CUSTOMIZE RECIPE</span>
+                        <span class="btn-icon">✨</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Selection View -->
+        <div id="selection-view" class="selection-view hidden">
+            <div class="selection-header">
+                <button class="back-btn" onclick="closeSelection()">←</button>
+                <h2 class="selection-title">Select a Cuisine</h2>
+            </div>
+            
+            <div class="regions-grid">
+                <div class="region" data-region="asian">
+                    <h3>Asian Cuisine</h3>
+                    <div class="region-cuisines"></div>
+                </div>
+                <div class="region" data-region="european">
+                    <h3>European Cuisine</h3>
+                    <div class="region-cuisines"></div>
+                </div>
+                <div class="region" data-region="american">
+                    <h3>The Americas</h3>
+                    <div class="region-cuisines"></div>
+                </div>
+                <div class="region" data-region="african">
+                    <h3>African Cuisine</h3>
+                    <div class="region-cuisines"></div>
+                </div>
+                <div class="region" data-region="middleeastern">
+                    <h3>Middle Eastern</h3>
+                    <div class="region-cuisines"></div>
+                </div>
+                <div class="region" data-region="oceanic">
+                    <h3>Oceanic Cuisine</h3>
+                    <div class="region-cuisines"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Preferences Modal -->
+        <div id="preferences-modal" class="modal hidden">
+            <div class="modal-overlay" onclick="closePreferences()"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Customize Your Recipe</h2>
+                    <button class="close-btn" onclick="closePreferences()">×</button>
+                </div>
+                
+                <div class="modal-body">
+                    <div class="preference-section">
+                        <label>Number of Servings</label>
+                        <div class="servings-control">
+                            <button class="servings-btn" onclick="adjustServings(-1)">-</button>
+                            <span id="servings-display">1</span>
+                            <button class="servings-btn" onclick="adjustServings(1)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="preference-section">
+                        <label>Dietary Restrictions</label>
+                        <div class="dietary-options">
+                            <label class="dietary-option">
+                                <input type="checkbox" name="dietary" value="vegetarian">
+                                <span class="checkbox-custom"></span>
+                                Vegetarian
+                            </label>
+                            <label class="dietary-option">
+                                <input type="checkbox" name="dietary" value="vegan">
+                                <span class="checkbox-custom"></span>
+                                Vegan
+                            </label>
+                            <label class="dietary-option">
+                                <input type="checkbox" name="dietary" value="lactose-free">
+                                <span class="checkbox-custom"></span>
+                                Lactose Intolerant
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="preference-section">
+                        <label>Special Ingredients (Optional)</label>
+                        <div class="ingredients-input-container">
+                            <input type="text" id="ingredient-input" placeholder="Type an ingredient and press Enter">
+                        </div>
+                        <div id="ingredients-tags" class="ingredients-tags"></div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="create-btn" onclick="generateRecipe()">
+                        <span class="btn-text">GENERATE RECIPE</span>
+                        <span class="btn-icon">🌟</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
