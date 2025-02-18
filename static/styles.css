@@ -115,6 +115,8 @@ body {
     box-shadow: 0 4px 12px rgba(255, 107, 74, 0.2);
 }
 
+
+
 .fusion-text {
     font-size: 0.9rem;
     font-weight: 600;
@@ -277,7 +279,7 @@ body {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
-    align-self: center;
+    /* align-self: center; */
 }
 
 .modal.visible {
@@ -303,7 +305,7 @@ body {
     max-width: 600px;
     max-height: 90vh;
     overflow-y: auto;
-    align-self: center;
+    /* align-self: center; */
     box-shadow: 0 16px 40px rgba(42, 43, 88, 0.1);
     z-index: 2001;
     transform: translateY(20px);
@@ -820,3 +822,26 @@ body {
     margin: 2rem 0;
 }
 
+.brand-logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 50px;
+    font-weight: 800;
+    color: orange; /* Vibrant red for a bold, eye-catching look */
+    letter-spacing: 2px;
+    /* text-transform: uppercase; */
+    background: linear-gradient(135deg, orange, #F77F00); /* Gradient effect */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.fusion-indicator img {
+    width: 50px;  
+    height: auto; 
+    margin-bottom: 65px; 
+    position: relative;
+    top: -10px; 
+}

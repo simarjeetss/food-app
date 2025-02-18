@@ -1,4 +1,1 @@
-transformers
-diffusers
-torch 
-ipython
+dotenv
