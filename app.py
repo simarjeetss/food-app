@@ -17,6 +17,10 @@ HEADERS = {
     "Content-Type": "application/json",
 }
 
+@app.route("/")
+def home():
+    return render_template("index.html")
+
 def run_cloudflare_model_text(model, inputs):
     """Calls Cloudflare's AI API to generate a response."""
     payload = {"messages": inputs, "max_tokens": 2}
@@ -52,10 +56,6 @@ def run_cloudflare_model_image(model, inputs):
                 "success": False,
                 "error": f"Request failed with status {response.status_code}"
             }
-
-@app.route("/")
-def home():
-    return render_template("index.html")
 
 def generate_recipe_image(recipe):
     """Generates an image for the recipe using Cloudflare's Image Generation."""
@@ -138,7 +138,6 @@ def generate_fusion_recipe():
         response_data["image_error"] = recipe_image.get("error", "Failed to generate image")
     
     return jsonify(response_data)
-
 
 if __name__ == "__main__":
     app.run(debug=True)
