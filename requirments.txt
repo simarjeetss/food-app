@@ -1,1 +1,5 @@
-dotenv
+python-dotenv
+flask
+requests
+pybase64
+markdown
