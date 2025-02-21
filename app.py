@@ -23,7 +23,7 @@ def home():
 
 def run_cloudflare_model_text(model, inputs):
     """Calls Cloudflare's AI API to generate a response."""
-    payload = {"messages": inputs, "max_tokens": 2}
+    payload = {"messages": inputs, "max_tokens": 500}
     response = requests.post(f"{API_BASE_URL}{model}", headers=HEADERS, json=payload)
     
     if response.status_code == 200:
@@ -140,4 +140,5 @@ def generate_fusion_recipe():
     return jsonify(response_data)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5001))
+    app.run(host="0.0.0.0", port=port)
