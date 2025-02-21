@@ -3,3 +3,4 @@ flask
 requests
 pybase64
 markdown
+gunicorn
