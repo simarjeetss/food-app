@@ -2,4 +2,5 @@ python-dotenv
 flask
 requests
 pybase64
-markdown    
+markdown
+gunicorn
