@@ -23,11 +23,7 @@ def home():
 
 def run_cloudflare_model_text(model, inputs):
     """Calls Cloudflare's AI API to generate a response."""
-<<<<<<< HEAD
     payload = {"messages": inputs, "max_tokens": 500}
-=======
-    payload = {"messages": inputs, "max_tokens": 600}
->>>>>>> ce79bc29def232d779f9062b47836d9422b81c5f
     response = requests.post(f"{API_BASE_URL}{model}", headers=HEADERS, json=payload)
     
     if response.status_code == 200:

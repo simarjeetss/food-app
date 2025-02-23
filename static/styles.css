@@ -41,6 +41,7 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: 3.5rem;
     margin-bottom: 1rem;
+    margin-top: 100px;
     color: var(--secondary-color);
     letter-spacing: -0.02em;
 }
@@ -97,12 +98,12 @@ body {
 }
 
 /* Fusion Indicator Styles */
-.fusion-indicator {
+/* .fusion-indicator {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-}
+} */
 
 .fusion-circle {
     width: 60px;
@@ -508,6 +509,8 @@ body {
     .regions-grid {
         grid-template-columns: 1fr;
     }
+
+
 }
 .recipe-image-container {
     width: 100%;
@@ -758,6 +761,11 @@ body {
     .modal-body {
         padding: 1.5rem;
     }
+
+    .brand-logo{
+        padding-bottom: 100px;
+    }
+    
 }
 
 .ingredients-list {
@@ -829,10 +837,9 @@ body {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 50px;
     font-weight: 800;
-    color: orange; /* Vibrant red for a bold, eye-catching look */
+    color: orange;
     letter-spacing: 2px;
-    /* text-transform: uppercase; */
-    background: linear-gradient(135deg, orange, #F77F00); /* Gradient effect */
+    background: linear-gradient(135deg, orange, #F77F00);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
