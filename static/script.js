@@ -345,7 +345,7 @@ function showRecipeModal(recipeHtml, imageData) {
                 <div class="recipe-instructions">
                     <h3 class="recipe-section-title">Instructions</h3>
                     <ol class="instructions-list">
-                        ${sections.instructions.map(instruction => 
+                        ${sections.instructions.filter(instruction => Boolean(instruction)).map(instruction => 
                             `<li>${instruction}</li>`
                         ).join('')}
                     </ol>
@@ -437,20 +437,49 @@ function parseRecipeSections(recipeText) {
     };
 
     // Extract each section
+    // const sections = {
+    //     title: extractSection(recipeText, 'RECIPE_TITLE'),
+    //     description: extractSection(recipeText, 'RECIPE_DESCRIPTION'),
+    //     info: extractSection(recipeText, 'RECIPE_INFO'),
+    //     ingredients: extractSection(recipeText, 'INGREDIENTS')
+    //         .split('\n')
+    //         .filter(line => line.trim())
+    //         .map(line => line.replace(/^-\s*/, '')),
+    //     instructions: extractSection(recipeText, 'INSTRUCTIONS')
+    //         .split('\n')
+    //         .filter(line => line.trim())
+    //         .map(line => line.replace(/^\d+\.\s*/, '')),
+    //     notes: extractSection(recipeText, 'NOTES')
+    // };
+
     const sections = {
-        title: extractSection(recipeText, 'RECIPE_TITLE'),
-        description: extractSection(recipeText, 'RECIPE_DESCRIPTION'),
-        info: extractSection(recipeText, 'RECIPE_INFO'),
-        ingredients: extractSection(recipeText, 'INGREDIENTS')
+        title: cleanText(extractSection(recipeText, 'RECIPE_TITLE')),
+        description: cleanText(extractSection(recipeText, 'RECIPE_DESCRIPTION')),
+        info: cleanText(extractSection(recipeText, 'RECIPE_INFO')),
+        ingredients: cleanArray(extractSection(recipeText, 'INGREDIENTS')
             .split('\n')
-            .filter(line => line.trim())
-            .map(line => line.replace(/^-\s*/, '')),
-        instructions: extractSection(recipeText, 'INSTRUCTIONS')
+            .map(line => line.replace(/^-\s*/, ''))),
+        instructions: cleanArray(extractSection(recipeText, 'INSTRUCTIONS')
             .split('\n')
-            .filter(line => line.trim())
-            .map(line => line.replace(/^\d+\.\s*/, '')),
-        notes: extractSection(recipeText, 'NOTES')
+            .map(line => line.replace(/^\d+\.\s*/, ''))),
+        notes: cleanText(extractSection(recipeText, 'NOTES'))
     };
+
+    /**
+     * Function to clean empty or invalid text values.
+     * Returns null if the text is empty or just whitespace.
+     */
+    function cleanText(text) {
+        return text && text.trim() ? text.trim() : null;
+    }
+
+    /**
+     * Function to clean an array, removing empty or whitespace-only items.
+     */
+    function cleanArray(arr) {
+        return arr.filter(line => line && line.trim());
+    }
+
 
     return sections;
 }
