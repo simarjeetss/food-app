@@ -240,12 +240,17 @@ function renderIngredientTags() {
     });
 }
 
+
+
 async function generateRecipe() {
     // Show loading state
     const generateButton = document.querySelector('.modal-footer .create-btn');
     const originalButtonText = generateButton.innerHTML;
     generateButton.innerHTML = `<span class="btn-text">GENERATING...</span><span class="btn-icon">⏳</span>`;
     generateButton.disabled = true;
+
+    // Show the skeleton loader immediately
+    showRecipeModal_temp({ title: '', description: '', info: '', ingredients: [], instructions: [] }, null);
 
     try {
         // Get dietary restrictions
@@ -275,12 +280,16 @@ async function generateRecipe() {
         }
 
         const data = await response.json();
-        
+
         // Close preferences modal
         closePreferences();
-
-        // Create and show recipe modal
+        
+        //document.body.appendChild(modal);
+        //closeRecipeModal(this.closest('.modal'))
+        modal.remove();
+        // Replace skeleton with actual data
         showRecipeModal(data.recipe, data.image);
+        
 
     } catch (error) {
         console.error('Error generating recipe:', error);
@@ -353,6 +362,68 @@ function showRecipeModal(recipeHtml, imageData) {
 
     document.body.appendChild(modal);
 }
+
+function showRecipeModal_temp(recipeHtml, imageData) {
+    // Create recipe modal
+    const modal = document.createElement('div');
+    modal.className = 'modal visible recipe-modal';
+
+    // Initial skeleton loading effect
+    modal.innerHTML = `
+        <div class="modal-overlay" onclick="closeRecipeModal(this.parentElement)"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-btn" onclick="closeRecipeModal(this.closest('.modal'))">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="skeleton-box skeleton-image"></div>
+            </div>
+
+            <div class="modal-body">
+                <div class="recipe-description skeleton-box skeleton-text"></div>
+
+                <div class="recipe-info skeleton-box skeleton-text"></div>
+
+                <div class="recipe-ingredients">
+                    <h3 class="skeleton-box skeleton-text"></h3>
+                    <div class="skeleton-box skeleton-image-list"></div>
+                </div>
+
+                <div class="recipe-instructions">
+                    <h3 class="skeleton-box skeleton-text"></h3>
+                    <div class="skeleton-box skeleton-image-list"></div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    // After a short delay, replace skeletons with actual data
+    // setTimeout(() => {
+    //     modal.querySelector('.recipe-title').innerHTML = recipeHtml.title;
+    //     modal.querySelector('.recipe-description').innerHTML = recipeHtml.description;
+    //     modal.querySelector('.recipe-info').innerHTML = recipeHtml.info;
+        
+    //     if (imageData) {
+    //         const imageContainer = modal.querySelector('.recipe-image-container');
+    //         imageContainer.innerHTML = `<img src="${imageData}" alt="${recipeHtml.title}" class="recipe-image">`;
+    //     }
+
+    //     // Replace ingredients
+    //     const ingredientsList = modal.querySelector('.ingredients-list');
+    //     ingredientsList.innerHTML = recipeHtml.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('');
+
+    //     // Replace instructions
+    //     const instructionsList = modal.querySelector('.instructions-list');
+    //     instructionsList.innerHTML = recipeHtml.instructions.map(instruction => `<li>${instruction}</li>`).join('');
+
+    //     // Remove skeleton classes
+    //     modal.querySelectorAll('.skeleton-box').forEach(el => el.classList.remove('skeleton-box', 'skeleton-text', 'skeleton-image'));
+
+    // }, 15000); // Simulated delay to make the loading effect noticeable
+}
+
 
 function parseRecipeSections(recipeText) {
     // Helper function to extract content between section markers
