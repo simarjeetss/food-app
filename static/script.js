@@ -25,6 +25,55 @@ const cuisinesByRegion = {
         'New Zealand', 'Fijian', 'Samoan'
     ]
 };
+// Mapping cuisines to country flag URLs (ISO country codes)
+const cuisineFlags = {
+    'Japanese': 'https://flagcdn.com/w40/jp.png',
+    'Korean': 'https://flagcdn.com/w40/kr.png',
+    'Chinese': 'https://flagcdn.com/w40/cn.png',
+    'Thai': 'https://flagcdn.com/w40/th.png',
+    'Vietnamese': 'https://flagcdn.com/w40/vn.png',
+    'Indian': 'https://flagcdn.com/w40/in.png',
+    'Malaysian': 'https://flagcdn.com/w40/my.png',
+    'Indonesian': 'https://flagcdn.com/w40/id.png',
+    'Filipino': 'https://flagcdn.com/w40/ph.png',
+    'Italian': 'https://flagcdn.com/w40/it.png',
+    'French': 'https://flagcdn.com/w40/fr.png',
+    'Spanish': 'https://flagcdn.com/w40/es.png',
+    'Greek': 'https://flagcdn.com/w40/gr.png',
+    'German': 'https://flagcdn.com/w40/de.png',
+    'Portuguese': 'https://flagcdn.com/w40/pt.png',
+    'Swedish': 'https://flagcdn.com/w40/se.png',
+    'Hungarian': 'https://flagcdn.com/w40/hu.png',
+    'Polish': 'https://flagcdn.com/w40/pl.png',
+    'Mexican': 'https://flagcdn.com/w40/mx.png',
+    'Brazilian': 'https://flagcdn.com/w40/br.png',
+    'Peruvian': 'https://flagcdn.com/w40/pe.png',
+    'Argentine': 'https://flagcdn.com/w40/ar.png',
+    'Caribbean': 'https://flagcdn.com/w40/ht.png',  // Generic Caribbean flag (Haiti)
+    'Creole': 'https://flagcdn.com/w40/gp.png',  // Guadeloupe as example
+    'Canadian': 'https://flagcdn.com/w40/ca.png',
+    'American': 'https://flagcdn.com/w40/us.png',
+    'Ethiopian': 'https://flagcdn.com/w40/et.png',
+    'Moroccan': 'https://flagcdn.com/w40/ma.png',
+    'Nigerian': 'https://flagcdn.com/w40/ng.png',
+    'Egyptian': 'https://flagcdn.com/w40/eg.png',
+    'South African': 'https://flagcdn.com/w40/za.png',
+    'Ghanaian': 'https://flagcdn.com/w40/gh.png',
+    'Senegalese': 'https://flagcdn.com/w40/sn.png',
+    'Lebanese': 'https://flagcdn.com/w40/lb.png',
+    'Turkish': 'https://flagcdn.com/w40/tr.png',
+    'Persian': 'https://flagcdn.com/w40/ir.png',
+    'Israeli': 'https://flagcdn.com/w40/il.png',
+    'Arabian': 'https://flagcdn.com/w40/sa.png',
+    'Armenian': 'https://flagcdn.com/w40/am.png',
+    'Georgian': 'https://flagcdn.com/w40/ge.png',
+    'Australian': 'https://flagcdn.com/w40/au.png',
+    'Hawaiian': 'https://flagcdn.com/w40/us-hi.png', // US Hawaii state flag
+    'Polynesian': 'https://flagcdn.com/w40/pf.png',  // French Polynesia
+    'New Zealand': 'https://flagcdn.com/w40/nz.png',
+    'Fijian': 'https://flagcdn.com/w40/fj.png',
+    'Samoan': 'https://flagcdn.com/w40/ws.png'
+};
 
 // State
 let currentSelection = null;
@@ -33,7 +82,7 @@ let selectedCuisines = {
     cuisine2: ''
 };
 let preferences = {
-    servings: 4,
+    servings: 1,
     dietary: [],
     ingredients: []
 };
@@ -58,13 +107,28 @@ function initializeRegions() {
         cuisines.forEach(cuisine => {
             const button = document.createElement('button');
             button.className = 'cuisine-option';
-            button.textContent = cuisine;
+
+            // Create an image element for the flag
+            const flagImg = document.createElement('img');
+            flagImg.src = cuisineFlags[cuisine] || 'https://flagcdn.com/w40/un.png'; // Default flag if not found
+            flagImg.alt = `${cuisine} Flag`;
+            flagImg.className = 'cuisine-flag';
+
+            // Create a span for the text
+            const textSpan = document.createElement('span');
+            textSpan.textContent = cuisine;
+
+            // Append flag and text inside button
+            button.appendChild(flagImg);
+            button.appendChild(textSpan);
+
+            // Add click event
             button.onclick = () => selectCuisine(cuisine);
+
             regionElement.appendChild(button);
         });
     });
 }
-
 function setupEventListeners() {
     // Cuisine preview clicks
     cuisine1Preview.addEventListener('click', () => startSelection(1));
