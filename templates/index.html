@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Culinary Fusion Explorer</title>
+    <title>FlavorBlend | AI-Powered Bites, Culture-Inspired Delights!</title>
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
     <link rel="stylesheet" href="/static/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+    
 </head>
 <body>
     <div id="app">
         <!-- Main View -->
-        <div  class="brand-logo">FlavorBlend
+        <div class="brand-container">
+
+            <img src="static/favicon.ico" alt="Brand Logo" class="brand-logo-img">
+            <span class="brand-logo">FlavorBlend</span>
         </div>
 
         <div id="main-view" class="main-view">
@@ -23,7 +28,7 @@
                         <div class="cuisine-preview" id="cuisine1-preview">
                             <span class="default-text">First Cuisine</span>
                         </div>
-                        <button class="explore-btn" onclick="startSelection(1)">EXPLORE</button>
+                        <!-- <button class="explore-btn" onclick="startSelection(1)">EXPLORE</button> -->
                     </div>
 
                     <div class="fusion-indicator">
@@ -38,7 +43,7 @@
                         <div class="cuisine-preview" id="cuisine2-preview">
                             <span class="default-text">Second Cuisine</span>
                         </div>
-                        <button class="explore-btn" onclick="startSelection(2)">EXPLORE</button>
+                        <!-- <button class="explore-btn" onclick="startSelection(2)">EXPLORE</button> -->
                     </div>
                 </div>
 
@@ -96,7 +101,7 @@
                 </div>
                 
                 <div class="modal-body">
-                    <div class="preference-section">
+                    <div class="servings-container">
                         <label>Number of Servings</label>
                         <div class="servings-control">
                             <button class="servings-btn" onclick="adjustServings(-1)">-</button>
@@ -129,7 +134,7 @@
                     <div class="preference-section">
                         <label>Special Ingredients (Optional)</label>
                         <div class="ingredients-input-container">
-                            <input type="text" id="ingredient-input" placeholder="Type an ingredient and press Enter">
+                            <input type="text" id="ingredient-input" placeholder="Type an ingredient">
                         </div>
                         <div id="ingredients-tags" class="ingredients-tags"></div>
                     </div>
