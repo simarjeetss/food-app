@@ -565,7 +565,6 @@ body {
     overflow: hidden;
     border-radius: 12px;
     margin: 1rem 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .recipe-image {
@@ -573,6 +572,7 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+    border-radius: 30px;
 }
 
 .modal-content {
@@ -780,7 +780,8 @@ body {
 }
 
 .modal-body {
-    padding: 2rem;
+    padding-bottom: 2rem;
+    padding-top: 10px;
     overflow-y: visible; /* Changed from auto to visible */
 }
 
@@ -871,7 +872,8 @@ body {
     font-size: 1.1rem;
     line-height: 1.6;
     color: #4A4A4A;
-    margin: 2rem 0;
+    margin-bottom: 2rem 0;
+    margin-top: 0px;
 }
 
 .brand-logo {

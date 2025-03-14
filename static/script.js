@@ -354,7 +354,7 @@ function showRecipeModal(recipeHtml, imageData) {
                 ${sections.notes ? `
                     <div class="recipe-notes">
                         <h3 class="recipe-section-title">Notes</h3>
-                        <p>${sections.notes}</p>
+                        <div class="recipe-description">${sections.notes}</div>
                     </div>
                 ` : ''}
             </div>
