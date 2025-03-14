@@ -250,8 +250,8 @@ async function generateRecipe() {
     generateButton.disabled = true;
 
     // Show the skeleton loader immediately
-    showRecipeModal_temp({ title: '', description: '', info: '', ingredients: [], instructions: [] }, null);
-
+    const temp_modal = showRecipeModal_temp({ title: '', description: '', info: '', ingredients: [], instructions: [] }, null);
+    
     try {
         // Get dietary restrictions
         const dietaryInputs = document.querySelectorAll('input[name="dietary"]:checked');
@@ -285,8 +285,9 @@ async function generateRecipe() {
         closePreferences();
         
         //document.body.appendChild(modal);
-        //closeRecipeModal(this.closest('.modal'))
-        modal.remove();
+        //console.log(document.children);
+        closeRecipeModal(temp_modal);
+        //modal.remove();
         // Replace skeleton with actual data
         showRecipeModal(data.recipe, data.image);
         
@@ -396,9 +397,9 @@ function showRecipeModal_temp(recipeHtml, imageData) {
             </div>
         </div>
     `;
-
+    
     document.body.appendChild(modal);
-
+    //console.log(document.children);
     // After a short delay, replace skeletons with actual data
     // setTimeout(() => {
     //     modal.querySelector('.recipe-title').innerHTML = recipeHtml.title;
@@ -422,6 +423,8 @@ function showRecipeModal_temp(recipeHtml, imageData) {
     //     modal.querySelectorAll('.skeleton-box').forEach(el => el.classList.remove('skeleton-box', 'skeleton-text', 'skeleton-image'));
 
     // }, 15000); // Simulated delay to make the loading effect noticeable
+
+    return modal;
 }
 
 
