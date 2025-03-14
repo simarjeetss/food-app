@@ -458,26 +458,34 @@ function parseRecipeSections(recipeText) {
         info: cleanText(extractSection(recipeText, 'RECIPE_INFO')),
         ingredients: cleanArray(extractSection(recipeText, 'INGREDIENTS')
             .split('\n')
-            .map(line => line.replace(/^-\s*/, ''))),
+            .map(line => line.replace(/^-\s*/, '').trim())),  // Remove leading dashes and trim spaces
         instructions: cleanArray(extractSection(recipeText, 'INSTRUCTIONS')
             .split('\n')
-            .map(line => line.replace(/^\d+\.\s*/, ''))),
+            .map(line => line.replace(/^\d+\.\s*/, '').trim())), // Remove numbered prefixes and trim
         notes: cleanText(extractSection(recipeText, 'NOTES'))
     };
+    
 
     /**
      * Function to clean empty or invalid text values.
      * Returns null if the text is empty or just whitespace.
      */
     function cleanText(text) {
-        return text && text.trim() ? text.trim() : null;
+        if (!text || typeof text !== 'string') return null;
+        const cleaned = text.replace(/<[^>]*>/g, '').trim(); // Removes all HTML tags
+        return cleaned.length > 0 ? cleaned : null;
     }
-
-    /**
-     * Function to clean an array, removing empty or whitespace-only items.
-     */
+    
+    // Function to clean an array: Removes empty lines and trims content
     function cleanArray(arr) {
-        return arr.filter(line => line && line.trim());
+        return arr
+            .map(line => line.replace(/<[^>]*>/g, '').trim()) // Remove HTML tags
+            .filter(line => line.length > 0); // Remove empty lines
+    }
+    function extractSection(text, section) {
+        const regex = new RegExp(`\\[${section}\\](.*?)(?=\\[|$)`, 's'); // 's' allows multi-line matching
+        const match = text.match(regex);
+        return match ? match[1].trim() : '';
     }
 
 
