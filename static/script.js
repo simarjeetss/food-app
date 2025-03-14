@@ -345,7 +345,7 @@ function showRecipeModal(recipeHtml, imageData) {
                 <div class="recipe-instructions">
                     <h3 class="recipe-section-title">Instructions</h3>
                     <ol class="instructions-list">
-                        ${sections.instructions.filter(instruction => Boolean(instruction)).map(instruction => 
+                        ${sections.instructions.map(instruction => 
                             `<li>${instruction}</li>`
                         ).join('')}
                     </ol>
@@ -429,13 +429,11 @@ function showRecipeModal_temp(recipeHtml, imageData) {
 
 
 function parseRecipeSections(recipeText) {
-    // Helper function to extract content between section markers
-    const extractSection = (text, sectionName) => {
-        const regex = new RegExp(`\\[${sectionName}\\]([\\s\\S]*?)(?=\\[|$)`);
+    function extractSection(text, section) {
+        const regex = new RegExp(`\\[${section}\\](.*?)(?=\\[|$)`, 's'); // 's' allows multi-line matching
         const match = text.match(regex);
         return match ? match[1].trim() : '';
-    };
-
+    }
     // Extract each section
     // const sections = {
     //     title: extractSection(recipeText, 'RECIPE_TITLE'),
@@ -451,7 +449,19 @@ function parseRecipeSections(recipeText) {
     //         .map(line => line.replace(/^\d+\.\s*/, '')),
     //     notes: extractSection(recipeText, 'NOTES')
     // };
-
+    function cleanText(text) {
+        if (!text || typeof text !== 'string') return null;
+        const cleaned = text.replace(/<[^>]*>/g, '').trim(); // Removes all HTML tags
+        return cleaned.length > 0 ? cleaned : null;
+    }
+    
+    // Function to clean an array: Removes empty lines and trims content
+    function cleanArray(arr) {
+        return arr
+            .map(line => line.replace(/<[^>]*>/g, '').trim()) // Remove HTML tags
+            .filter(line => line.length > 0); // Remove empty lines
+    }
+    
     const sections = {
         title: cleanText(extractSection(recipeText, 'RECIPE_TITLE')),
         description: cleanText(extractSection(recipeText, 'RECIPE_DESCRIPTION')),
@@ -470,23 +480,7 @@ function parseRecipeSections(recipeText) {
      * Function to clean empty or invalid text values.
      * Returns null if the text is empty or just whitespace.
      */
-    function cleanText(text) {
-        if (!text || typeof text !== 'string') return null;
-        const cleaned = text.replace(/<[^>]*>/g, '').trim(); // Removes all HTML tags
-        return cleaned.length > 0 ? cleaned : null;
-    }
     
-    // Function to clean an array: Removes empty lines and trims content
-    function cleanArray(arr) {
-        return arr
-            .map(line => line.replace(/<[^>]*>/g, '').trim()) // Remove HTML tags
-            .filter(line => line.length > 0); // Remove empty lines
-    }
-    function extractSection(text, section) {
-        const regex = new RegExp(`\\[${section}\\](.*?)(?=\\[|$)`, 's'); // 's' allows multi-line matching
-        const match = text.match(regex);
-        return match ? match[1].trim() : '';
-    }
 
 
     return sections;
