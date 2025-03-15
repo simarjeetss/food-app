@@ -21,6 +21,10 @@ HEADERS = {
 def home():
     return render_template("index.html")
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
 def run_cloudflare_model_text(model, inputs):
     """Calls Cloudflare's AI API to generate a response."""
     payload = {"messages": inputs, "max_tokens": 500}

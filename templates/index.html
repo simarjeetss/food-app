@@ -1,13 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2P9P9F34PE"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2P9P9F34PE');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
     <title>FlavorBlend | AI-Powered Bites, Culture-Inspired Delights!</title>
+    <!--<link rel="icon" type="image/x-icon" href="static/favicon.ico">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+     -->
+
+      <!-- SEO Meta Tags -->
+    <meta name="description" content="Discover unique fusion cuisine recipes crafted by AI. Blend flavors from different cultures into a single delicious dish. Try FlavorBlend today!">
+    <meta name="keywords" content="fusion recipes, AI recipes, global cuisine, world food, innovative cooking, FlavorBlend, creative recipes, food fusion, international cuisine, gourmet cooking, AI-generated recipes, unique food combinations, cultural food fusion, best fusion dishes, cross-cultural cuisine, modern cooking trends, culinary experimentation, AI-powered food ideas, global flavor blending, ethnic cuisine, healthy fusion meals, quick fusion recipes, easy fusion food, home-cooked fusion, AI food inspiration, trending food ideas, creative food pairings, multi-cuisine recipes, fusion dinner ideas, experimental cooking, new food concepts">
+    <meta name="author" content="FlavorBlend AI, Shlok Tomar, Aashik Sharif, Sheheryar Pirzada, Simarjeet Singh">
+    
+    <!-- Open Graph for Social Sharing -->
+    <meta property="og:title" content="FlavorBlend | AI-Powered Bites, Culture-Inspired Delights!">
+    <meta property="og:description" content="Create delicious fusion dishes using AI. Mix flavors from different cultures for a unique taste experience.">
+    <meta property="og:image" content="https://flavorblend.tech/static/android-chrome-192x192.png">
+    <meta property="og:url" content="https://flavorblend.tech">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FlavorBlend | AI-Powered Bites, Culture-Inspired Delights!">
+    <meta name="twitter:description" content="Discover AI-generated fusion recipes that mix flavors from around the world!">
+    <meta name="twitter:image" content="https://flavorblend.tech/static/android-chrome-192x192.png">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+
+    <!-- Preload Fonts for Performance -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Space+Grotesk:wght@400;600&display=swap" as="style">
     <link rel="stylesheet" href="/static/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
     
+    <!-- Structured Data for SEO (Schema.org) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "FlavorBlend AI-Powered Bites, Culture-Inspired Delights!",
+        "description": "AI-powered fusion cuisine recipes blending flavors from different cultures.",
+        "author": {
+            "@type": "Organization",
+            "name": "FlavorBlend AI"
+        },
+        "image": "https://flavorblend.tech/static/android-chrome-192x192.png",
+        "url": "https://flavorblend.tech",
+        "keywords": "fusion recipes, AI recipes, global cuisine, world food, innovative cooking, FlavorBlend, creative recipes, food fusion, international cuisine, gourmet cooking, AI-generated recipes, unique food combinations, cultural food fusion, best fusion dishes, cross-cultural cuisine, modern cooking trends, culinary experimentation, AI-powered food ideas, global flavor blending, ethnic cuisine, healthy fusion meals, quick fusion recipes, easy fusion food, home-cooked fusion, AI food inspiration, trending food ideas, creative food pairings, multi-cuisine recipes, fusion dinner ideas, experimental cooking, new food concepts",
+        "publisher": {
+            "@type": "Organization",
+            "name": "FlavorBlend",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://flavorblend.tech/static/favicon.ico"
+            }
+        }
+    }
+    </script>
 </head>
 <body>
     <div id="app">
@@ -16,6 +79,10 @@
 
             <img src="static/favicon.ico" alt="Brand Logo" class="brand-logo-img">
             <span class="brand-logo">FlavorBlend</span>
+        </div>
+        
+        <div class="nav-container">
+            <a href="{{ url_for('about') }}" class="about-button">About</a>
         </div>
 
         <div id="main-view" class="main-view">
@@ -149,6 +216,18 @@
             </div>
         </div>
     </div>
+    
     <script src="/static/script.js"></script>
+    <footer>
+        <p> Copyright © 2025 FlavorBlend.tech | All Rights Reserved</p>
+        <p>
+            Cooked by - 
+            <a href="https://www.linkedin.com/in/shlok-tomar/" target="_blank" style="color:black;">Shlok Tomar</a>, 
+            <a href="https://www.linkedin.com/in/peersahab/" target="_blank" style="color:black;">Sheheryar Ahmad Pirzada</a>, 
+            <a href="https://www.linkedin.com/in/aashiksharif/" target="_blank" style="color:black;">Aashik Sharif Basheer Ahamed</a>, 
+            <a href="https://www.linkedin.com/in/simarjeetss529/" target="_blank" style="color:black;">Simarjeet Singh</a>
+        </p>
+    </footer>
+
 </body>
 </html>
