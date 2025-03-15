@@ -125,7 +125,7 @@ body {
 }
 
 /* Button Styles */
-.explore-btn {
+/* .explore-btn {
     background: none;
     border: 2px solid var(--secondary-color);
     padding: 0.8rem 2rem;
@@ -140,7 +140,7 @@ body {
 .explore-btn:hover {
     background: var(--secondary-color);
     color: white;
-}
+} */
 
 .create-button-container {
     opacity: 0;
@@ -1018,3 +1018,161 @@ body {
     100% { background-position: -100% 0; }
 }
 
+footer {
+    text-align: center;
+    color: #000;
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    opacity: 0.3;
+}
+
+
+.nav-container {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+}
+
+.about-button {
+    background-color: #F77F00; /* Orange Button */
+    color: white;
+    padding: 10px 18px;
+    background: linear-gradient(135deg, orange, #F77F00);
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+.about-button:hover {
+    background-color: #E66A00; /* Darker shade on hover */
+}
+
+.brand-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+.about-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #2A2B58; /* Dark background */
+    color: white;
+}
+.about-content {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: justify;
+    margin-top: 50px;
+}
+
+.about-section h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-section ul li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.header-container {
+    background-color: #2A2B58; /* Dark background */
+    padding: 15px 20px;
+}
+
+/* Flexbox container for logo and navigation */
+.brand-nav-container {
+    display: flex;
+    justify-content: space-between; /* Space between logo and button */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Section Styling */
+.about-section {
+    margin-bottom: 40px;
+}
+
+.about-section h1, .about-section h2 {
+    color: #F77F00;
+}
+
+.about-intro {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+blockquote {
+    font-style: italic;
+    color: #777;
+    font-size: x-large;
+    border-left: 4px solid #F77F00;
+    padding-left: 10px;
+    margin: 20px 0;
+}
+
+/* Features List */
+.about-features {
+    list-style: none;
+    padding: 0;
+}
+
+.about-features li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Team Styling */
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.team-member {
+    background: #6D6875;
+    color: white;
+    padding: 19px 15px;
+    margin: 5px;
+    font-size: 18px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Call-to-Action Button */
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, orange, #F77F00);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    /* background: linear-gradient(135deg, orange, #F77F00); */
+    background-color: #E66A00;
+}

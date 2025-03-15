@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About FlavorBlend</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Space+Grotesk:wght@400;600&display=swap" as="style">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="brand-container">
+        <a href="{{ url_for('home') }}" class="brand-link"></a>
+        <img src="static/favicon.ico" alt="Brand Logo" class="brand-logo-img">
+        <span class="brand-logo">FlavorBlend</span>
+    </div>
+    
+    <main class="about-content">
+        <section class="about-section">
+            <h1>Where Cultures Mix, Flavors Fuse, and Every Meal Tells a Story</h1>
+            <p class="about-intro">
+                Food is more than just sustenance—it’s a language, a shared experience, and a bridge between cultures.
+                At <strong>FlavorBlend</strong>, we believe that the best flavors are born at the crossroads of tradition and innovation.
+                Our platform reimagines the way we cook, using <strong>cutting-edge AI</strong> to craft unique fusion recipes that celebrate culinary diversity.
+            </p>
+        </section>
+
+        <section class="about-section">
+            <h2>Our Story: From Dorm Kitchens to a Global Table</h2>
+            <p>
+                As <strong>student immigrants</strong>, we’ve felt the power of food in transforming unfamiliar places into <em>home</em>.
+                Late-night study sessions, crowded dorm kitchens, and impromptu potlucks introduced us to a world of flavors we never expected to love.
+                From spicy Indian curries meeting smoky Mexican chipotle to Italian pasta infused with Middle Eastern warmth,
+                we found comfort in blending the familiar with the new. These experiences sparked a thought:
+            </p>
+            <blockquote>“What if everyone could experience the magic of fusion cuisine, no matter where they are?”</blockquote>
+        </section>
+
+        <section class="about-section">
+            <h2>What We Do</h2>
+            <ul class="about-features">
+                <li>✅ AI-powered fusion recipe generator tailored to your taste.</li>
+                <li>✅ Step-by-step cooking instructions for easy preparation.</li>
+                <li>✅ AI-generated images to visualize your dish.</li>
+                <li>✅ A global community to share and explore new fusion ideas.</li>
+            </ul>
+        </section>
+
+        <section class="about-section">
+            <h2>Meet the Team</h2>
+            <div class="team-container">
+                <a href="https://www.linkedin.com/in/shlok-tomar/" target="_blank" style="color:black;text-decoration: none;"><div class="team-member">👨🏻‍💻 <strong>Shlok Tomar</strong></div></a>
+                <a href="https://www.linkedin.com/in/peersahab/" target="_blank" style="color:black;text-decoration: none;"><div class="team-member">👨🏼‍🎨 <strong>Sheheryar Ahmad Pirzada</strong></div></a>
+                <a href="https://www.linkedin.com/in/aashiksharif/" target="_blank" style="color:black;text-decoration: none;"><div class="team-member">👨🏽‍🔬 <strong>Aashik Sharif Basheer Ahamed</strong></div></a>
+                <a href="https://www.linkedin.com/in/simarjeetss529/" target="_blank" style="color:black;text-decoration: none;"><div class="team-member">👨🏼‍🍳 <strong>Simarjeet Singh</strong></div></a>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2>Join the Flavor Revolution</h2>
+            <p>
+                Whether you're craving an <strong>Indian-Mexican fusion taco</strong> or an <strong>Italian-Korean ramen bowl</strong>,
+                FlavorBlend is your passport to global flavors. 
+            </p>
+            <a href="{{ url_for('home') }}" class="cta-button">Try FlavorBlend Now</a>
+        </section>
+    </main>
+    <footer>
+        <p>Copyright © 2025 FlavorBlend.tech | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

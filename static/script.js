@@ -1,8 +1,10 @@
+//document.getElementById("year").textContent = new Date().getFullYear();
+
 // Cuisine data organized by regions
 const cuisinesByRegion = {
     asian: [
         'Japanese', 'Korean', 'Chinese', 'Thai', 'Vietnamese', 
-        'Indian', 'Malaysian', 'Indonesian', 'Filipino'
+        'Indian', 'Malaysian', 'Indonesian', 'Filipino', 'Pakistan'
     ],
     european: [
         'Italian', 'French', 'Spanish', 'Greek', 'German',
@@ -40,6 +42,7 @@ const cuisineFlags = {
     'French': 'https://flagcdn.com/w40/fr.png',
     'Spanish': 'https://flagcdn.com/w40/es.png',
     'Greek': 'https://flagcdn.com/w40/gr.png',
+    'Pakistan': 'https://flagcdn.com/w40/pk.png',
     'German': 'https://flagcdn.com/w40/de.png',
     'Portuguese': 'https://flagcdn.com/w40/pt.png',
     'Swedish': 'https://flagcdn.com/w40/se.png',
