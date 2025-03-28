@@ -149,6 +149,12 @@ def generate_fusion_recipe():
 def sitemap():
     return send_from_directory(app.static_folder, 'sitemap.xml')
 
+#Robots.txt addition
+@app.route('/robots.txt')
+def robots_txt():
+    return send_from_directory(app.static_folder, 'robots.txt')
+
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5001))
