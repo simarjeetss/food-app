@@ -880,7 +880,7 @@ body {
 
 .brand-logo {
     font-family: 'Space Grotesk';
-    font-size: 50px;
+    font-size: 35px;
     font-weight: 800;
     color: orange;
     letter-spacing: 2px;
@@ -912,8 +912,8 @@ body {
 }
 
 .brand-logo-img {
-    width: 50px; /* Adjust size for better alignment */
-    height: 50px; /* Set fixed height for consistency */
+    width: 35px; /* Adjust size for better alignment */
+    height: 35px; /* Set fixed height for consistency */
     object-fit: contain; /* Prevents stretching */
     vertical-align: middle; /* Ensures alignment with text */
 }

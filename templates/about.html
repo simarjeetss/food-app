@@ -14,16 +14,20 @@
 </head>
 <body>
     <div class="brand-container">
-        <a href="{{ url_for('home') }}" class="brand-link"></a>
-        <img src="static/favicon.ico" alt="Brand Logo" class="brand-logo-img">
-        <span class="brand-logo">FlavorBlend</span>
+        <a href="{{ url_for('home') }}" class="brand-link">
+            <img src="static/favicon.ico" alt="Brand Logo" class="brand-logo-img">
+            <span class="brand-logo">FlavorBlend</span>
+        </a>
     </div>
     
     <main class="about-content">
         <section class="about-section">
             <h1>Where Cultures Mix, Flavors Fuse, and Every Meal Tells a Story</h1>
+            <div class="image-container" style="text-align: center;">
+                <img src="static/flavor_blend_comic.jpg" alt="comic" style="max-width: 50%; height: 500px; margin-bottom: 1em">
+            </div>
             <p class="about-intro">
-                Food is more than just sustenance—it’s a language, a shared experience, and a bridge between cultures.
+                Food is more than just sustenance—it's a language, a shared experience, and a bridge between cultures.
                 At <strong>FlavorBlend</strong>, we believe that the best flavors are born at the crossroads of tradition and innovation.
                 Our platform reimagines the way we cook, using <strong>cutting-edge AI</strong> to craft unique fusion recipes that celebrate culinary diversity.
             </p>
@@ -32,12 +36,12 @@
         <section class="about-section">
             <h2>Our Story: From Dorm Kitchens to a Global Table</h2>
             <p>
-                As <strong>student immigrants</strong>, we’ve felt the power of food in transforming unfamiliar places into <em>home</em>.
+                As <strong>student immigrants</strong>, we've felt the power of food in transforming unfamiliar places into <em>home</em>.
                 Late-night study sessions, crowded dorm kitchens, and impromptu potlucks introduced us to a world of flavors we never expected to love.
                 From spicy Indian curries meeting smoky Mexican chipotle to Italian pasta infused with Middle Eastern warmth,
                 we found comfort in blending the familiar with the new. These experiences sparked a thought:
             </p>
-            <blockquote>“What if everyone could experience the magic of fusion cuisine, no matter where they are?”</blockquote>
+            <blockquote>"What if everyone could experience the magic of fusion cuisine, no matter where they are?"</blockquote>
         </section>
 
         <section class="about-section">
@@ -52,11 +56,15 @@
 
         <section class="about-section">
             <h2>Meet the Team</h2>
+            <section class="about-section" style="text-align: center;">
+                <img src="static/flavor_blend_winning.jpg" alt="winning moment" style="max-width: 100%; height: auto; margin-top: 1em;">
+            </section>
             <div class="team-container">
                 <a href="https://www.linkedin.com/in/shlok-tomar/" target="_blank" style="color:black;text-decoration: none;"><div class="team-member">👨🏻‍💻 <strong>Shlok Tomar</strong></div></a>
+                <a href="https://www.linkedin.com/in/simarjeetss529/" target="_blank" style="color:black;text-decoration: none;"><div class="team-member">👨🏼‍🍳 <strong>Simarjeet Singh</strong></div></a>
                 <a href="https://www.linkedin.com/in/peersahab/" target="_blank" style="color:black;text-decoration: none;"><div class="team-member">👨🏼‍🎨 <strong>Sheheryar Ahmad Pirzada</strong></div></a>
                 <a href="https://www.linkedin.com/in/aashiksharif/" target="_blank" style="color:black;text-decoration: none;"><div class="team-member">👨🏽‍🔬 <strong>Aashik Sharif Basheer Ahamed</strong></div></a>
-                <a href="https://www.linkedin.com/in/simarjeetss529/" target="_blank" style="color:black;text-decoration: none;"><div class="team-member">👨🏼‍🍳 <strong>Simarjeet Singh</strong></div></a>
+                
             </div>
         </section>
 
@@ -68,6 +76,8 @@
             </p>
             <a href="{{ url_for('home') }}" class="cta-button">Try FlavorBlend Now</a>
         </section>
+
+        
     </main>
     <footer>
         <p>Copyright © 2025 FlavorBlend.tech | All Rights Reserved</p>
