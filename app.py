@@ -90,7 +90,7 @@ def generate_fusion_recipe():
     cuisine2 = data.get("cuisine2")
     
     servings = data.get("servings", 1)
-    dietary = data.get("dietary", [])
+    dietary = data.get("dietary", []) 
     ingredients = data.get("ingredients", [])
     
     if not cuisine1 or not cuisine2:
