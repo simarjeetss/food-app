@@ -1,10 +1,11 @@
 import os
 import requests
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, send_from_directory
 import markdown
 import json
 import base64
 from dotenv import load_dotenv
+
 
 app = Flask(__name__)
 
@@ -142,6 +143,12 @@ def generate_fusion_recipe():
         response_data["image_error"] = recipe_image.get("error", "Failed to generate image")
     
     return jsonify(response_data)
+
+#Site mapp directory
+@app.route('/sitemap.xml')
+def sitemap():
+    return send_from_directory(app.static_folder, 'sitemap.xml')
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5001))
