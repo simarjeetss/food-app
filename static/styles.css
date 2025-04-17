@@ -1,46 +1,69 @@
-/* Base Styles */
+/* 
+ * 1. Variables & Reset
+ * 2. Typography
+ * 3. Layout & Containers
+ * 4. Components
+ *    4.1 Buttons
+ *    4.2 Form Elements
+ *    4.3 Cards & Containers
+ *    4.4 Selection UI
+ * 5. Modals
+ * 6. Recipe Display
+ * 7. Navigation & Branding
+ * 8. Utility Classes
+ * 9. Animations
+ * 10. Responsive Styles
+ */
+
+/* ==============================
+   1. Variables & Reset
+   ============================== */
+   :root {
+    --primary-color: #FF6B4A;
+    --secondary-color: #2A2B58;
+    --background-color: #FDFBF8;
+    --text-color: #2A2B58;
+    --light-gray: #f8f8f8;
+    --medium-gray: #e0e0e0;
+    --dark-gray: #666;
+    --border-color: rgba(42, 43, 88, 0.1);
+    --shadow-light: 0 8px 24px rgba(42, 43, 88, 0.08);
+    --shadow-medium: 0 12px 32px rgba(42, 43, 88, 0.12); 
+    --shadow-dark: 0 16px 40px rgba(42, 43, 88, 0.1);
+    --primary-shadow: 0 4px 12px rgba(255, 107, 74, 0.2);
+    --transition-speed: 0.3s;
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 20px;
+    --border-radius-xl: 24px;
+    --border-radius-round: 100px;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root {
-    --primary-color: #FF6B4A;
-    --secondary-color: #2A2B58;
-    --background-color: #FDFBF8;
-    --text-color: #2A2B58;
-    --transition-speed: 0.3s;
-}
-
 body {
-    font-family: 'Space Grotesk';
+    font-family: 'Space Grotesk', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
     min-height: 100vh;
 }
 
-/* Main View Styles */
-.main-view {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.content-wrapper {
-    max-width: 1200px;
-    width: 100%;
-    text-align: center;
-}
-
+/* ==============================
+   2. Typography
+   ============================== */
 .title {
     font-family: 'Playfair Display', serif;
     font-size: 3.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-sm);
     margin-top: 100px;
     color: var(--secondary-color);
     letter-spacing: -0.02em;
@@ -50,39 +73,53 @@ body {
     font-size: 1.2rem;
     color: var(--secondary-color);
     opacity: 0.8;
-    margin-bottom: 4rem;
+    margin-bottom: var(--spacing-xl);
 }
 
-/* Fusion Container Styles */
-.fusion-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 3rem;
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--secondary-color);
 }
 
-.cuisine-selector {
-    flex: 1;
-    max-width: 320px;
+.recipe-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 2px solid var(--primary-color);
 }
 
-.cuisine-preview {
-    background-color: white;
-    height: 200px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    box-shadow: 0 8px 24px rgba(42, 43, 88, 0.08);
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-    cursor: pointer;
+.recipe-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-sm);
 }
 
-.cuisine-preview:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 32px rgba(42, 43, 88, 0.12);
+.recipe-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #4A4A4A;
+    max-width: 650px;
+    text-align: justify;
+    margin: 0 auto;
+}
+
+.info-label {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+    margin-bottom: var(--spacing-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.info-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--secondary-color);
 }
 
 .default-text {
@@ -97,85 +134,58 @@ body {
     font-weight: 600;
 }
 
-/* Fusion Indicator Styles */
-/* .fusion-indicator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-} */
-
-.fusion-circle {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: var(--primary-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(255, 107, 74, 0.2);
-}
-
-
-
 .fusion-text {
     font-size: 0.9rem;
     font-weight: 600;
     color: var(--primary-color);
 }
 
-/* Button Styles */
-/* .explore-btn {
-    background: none;
-    border: 2px solid var(--secondary-color);
-    padding: 0.8rem 2rem;
-    border-radius: 100px;
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 600;
-    color: var(--secondary-color);
-    cursor: pointer;
-    transition: all var(--transition-speed);
+.about-intro {
+    font-size: 18px;
+    line-height: 1.6;
 }
 
-.explore-btn:hover {
-    background: var(--secondary-color);
-    color: white;
-} */
-
-.create-button-container {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all var(--transition-speed);
+blockquote {
+    font-style: italic;
+    color: #777;
+    font-size: x-large;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 10px;
+    margin: 20px 0;
 }
 
-.create-button-container.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.create-btn {
-    background: var(--primary-color);
-    border: none;
-    padding: 1rem 3rem;
-    border-radius: 100px;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: white;
-    cursor: pointer;
-    transition: all var(--transition-speed);
+/* ==============================
+   3. Layout & Containers
+   ============================== */
+.main-view {
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin: 0 auto;
+    justify-content: center;
+    padding: var(--spacing-lg);
+    opacity: 1;
+    transition: opacity var(--transition-speed) ease-in-out;
 }
 
-.create-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 24px rgba(255, 107, 74, 0.25);
+.content-wrapper {
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
 }
 
-/* Selection View Styles */
+.fusion-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.cuisine-selector {
+    flex: 1;
+    max-width: 320px;
+}
+
 .selection-view {
     position: fixed;
     top: 0;
@@ -185,22 +195,91 @@ body {
     background: white;
     z-index: 1000;
     overflow-y: auto;
-    padding: 2rem;
+    padding: var(--spacing-lg);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    transition: opacity var(--transition-speed) ease-in-out, visibility var(--transition-speed) ease-in-out;
 }
 
-.selection-view.visible {
-    opacity: 1;
-    visibility: visible;
+.regions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.region {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-light);
+}
+
+.region-cuisines {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xs);
 }
 
 .selection-header {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: justify;
+    margin-top: 50px;
+}
+
+.about-section {
+    margin-bottom: 40px;
+}
+
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.team-member {
+    background: #6D6875;
+    color: white;
+    padding: 19px 15px;
+    margin: 5px;
+    font-size: 18px;
+    border-radius: var(--border-radius-sm);
+    font-weight: bold;
+}
+
+/* ==============================
+   4. Components
+   ============================== */
+/* 4.1 Buttons */
+.create-btn {
+    background: var(--primary-color);
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-xl);
+    border-radius: var(--border-radius-round);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin: 0 auto;
+}
+
+.create-btn:hover {
+    transform: scale(1.05);
+    box-shadow: var(--primary-shadow);
 }
 
 .back-btn {
@@ -209,7 +288,7 @@ body {
     font-size: 2rem;
     color: var(--secondary-color);
     cursor: pointer;
-    padding: 0.5rem;
+    padding: var(--spacing-xs);
     transition: transform var(--transition-speed);
 }
 
@@ -217,172 +296,25 @@ body {
     transform: translateX(-5px);
 }
 
-.selection-title {
-    font-family: 'Space Grotesk';
-    font-size: 2rem;
-    color: var(--secondary-color);
-}
-
-.regions-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.region {
-    background: white;
-    border-radius: 20px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 12px rgba(42, 43, 88, 0.08);
-}
-
-.region h3 {
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-    font-family: 'Space Grotesk';
-}
-
-.region-cuisines {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
-}
-
-/* .cuisine-option {
+.close-btn {
     background: none;
-    border: 1px solid rgba(42, 43, 88, 0.2);
-    padding: 0.8rem;
-    border-radius: 8px;
-    font-family: 'Space Grotesk', sans-serif;
-    color: var(--secondary-color);
+    border: none;
+    padding: 2px;
     cursor: pointer;
-    transition: all var(--transition-speed);
-} */
-.cuisine-option {
-    display: flex;
-    align-items: center;
-    gap: 8px; /* Space between flag and text */
-    font-size: 16px;
-    font-weight: 500;
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
-    padding: 10px 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.cuisine-option:hover {
-    background: var(--secondary-color);
-    color: white;
-    border-color: var(--secondary-color);
-}
-.cuisine-option img.cuisine-flag {
-    width: 20px;
-    height: 15px;
-    object-fit: contain;
-    border-radius: 3px;
-}
-
-/* Modal Styles */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2000;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    /* align-self: center; */
+    transition: transform 0.2s ease-in-out;
+    font-size: 30px;
 }
 
-.modal.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(42, 43, 88, 0.2);
-    backdrop-filter: blur(8px);
-}
-
-.modal-content {
-    position: relative;
-    background: white;
-    border-radius: 24px;
-    width: 90%;
-    max-width: 600px;
-    max-height: 90vh;
-    overflow-y: auto;
-    /* align-self: center; */
-    box-shadow: 0 16px 40px rgba(42, 43, 88, 0.1);
-    z-index: 2001;
-    transform: translateY(20px);
-    opacity: 0;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.modal.visible .modal-content {
-    transform: translateY(0);
-    opacity: 1;
-    padding: 0px;
-}
-
-.modal-header {
-    display: flex;
-    align-items: center; /* Ensures vertical alignment */
-    justify-content: space-between; /* Title on the left, button on the right */
-    padding: 11px 15px; /* Adjust padding */
-    position: relative; /* Ensures proper layout */
-    width: 100%;
-}
-
-
-.modal-header h2 {
-    font-family: 'Playfair Display', serif;
-    color: var(--secondary-color);
-    margin: 0;
-}
-
-.modal-body {
-    padding: 1.5rem;
-}
-
-.preference-section {
-    margin-bottom: 2rem;
-}
-
-.preference-section:last-child {
-    margin-bottom: 0;
-}
-
-.preference-section label {
-    display: block;
-    font-weight: 600;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-}
-
-/* Servings Control */
-.servings-control {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background: rgba(42, 43, 88, 0.05);
-    padding: 0.5rem;
-    border-radius: 100px;
-    width: fit-content;
+.close-btn:hover {
+    transform: scale(1.05);
 }
 
 .servings-btn {
@@ -402,6 +334,58 @@ body {
     color: white;
 }
 
+.remove-tag {
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    cursor: pointer;
+    padding: 0.2rem;
+    line-height: 1;
+    font-size: 1.2rem;
+}
+
+.about-button {
+    background: linear-gradient(135deg, orange, #F77F00);
+    color: white;
+    padding: 10px 18px;
+    border-radius: var(--border-radius-sm);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+.about-button:hover {
+    background-color: #E66A00;
+}
+
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, orange, #F77F00);
+    color: white;
+    padding: 12px 24px;
+    border-radius: var(--border-radius-sm);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #E66A00;
+}
+
+/* 4.2 Form Elements */
+.servings-control {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: rgba(42, 43, 88, 0.05);
+    padding: var(--spacing-xs);
+    border-radius: var(--border-radius-round);
+    width: fit-content;
+}
+
 #servings-display {
     font-size: 1.2rem;
     font-weight: 600;
@@ -410,11 +394,10 @@ body {
     text-align: center;
 }
 
-/* Dietary Options */
 .dietary-options {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
+    gap: var(--spacing-sm);
 }
 
 .dietary-option {
@@ -422,24 +405,11 @@ body {
     font-size: 1.2rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--spacing-xs);
     cursor: pointer;
-    vertical-align:middle;
+    vertical-align: middle;
 }
 
-
-/* .dietary-option input {
-    appearance: none; 
-    width: 18px; 
-    height: 18px;
-    border: 2px solid var(--secondary-color);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-} 
-*/
 .dietary-option input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
@@ -468,7 +438,7 @@ body {
 }
 
 .checkbox-custom:after {
-        content: '✓';
+    content: '✓';
     position: absolute;
     top: 50%;
     left: 50%;
@@ -483,16 +453,11 @@ body {
     opacity: 1;
 }
 
-/* Ingredients Section */
-.ingredients-input-container {
-    margin-bottom: 1rem;
-}
-
 #ingredient-input {
     width: 100%;
     padding: 0.8rem 1rem;
     border: 2px solid rgba(42, 43, 88, 0.1);
-    border-radius: 8px;
+    border-radius: var(--border-radius-sm);
     font-family: 'Space Grotesk';
     font-size: 1rem;
     transition: all var(--transition-speed);
@@ -503,87 +468,243 @@ body {
     outline: none;
 }
 
+.ingredients-input-container {
+    margin-bottom: var(--spacing-sm);
+}
+
 .ingredients-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: var(--spacing-xs);
 }
 
 .ingredient-tag {
     background: rgba(42, 43, 88, 0.05);
-    padding: 0.5rem 1rem;
-    border-radius: 100px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-round);
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--spacing-xs);
 }
 
-.remove-tag {
-    background: none;
-    border: none;
+.servings-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.servings-container:last-child {
+    margin-bottom: 0;
+}
+
+.servings-container label {
+    font-size: 20px;
+    display: block;
+    font-weight: 600;
     color: var(--secondary-color);
-    cursor: pointer;
-    padding: 0.2rem;
-    line-height: 1;
-    font-size: 1.2rem;
-}
-
-.modal-footer {
-    padding: 1.5rem;
-    border-top: 1px solid rgba(42, 43, 88, 0.1);
+    margin-bottom: var(--spacing-sm);
     text-align: center;
 }
 
-.hidden {
-    display: none;
+/* 4.3 Cards & Containers */
+.cuisine-preview {
+    background-color: white;
+    height: 200px;
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-sm);
+    box-shadow: var(--shadow-light);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    cursor: pointer;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .title {
-        font-size: 2.5rem;
-    }
-
-    .fusion-container {
-        flex-direction: column;
-    }
-
-    .cuisine-selector {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .regions-grid {
-        grid-template-columns: 1fr;
-    }
-
-
+.cuisine-preview:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
 }
-.recipe-image-container {
+
+.fusion-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--primary-shadow);
+}
+
+.fusion-indicator img {
+    width: 50px;
+    height: auto;
+    position: relative;
+    top: -10px;
+}
+
+.create-button-container {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-speed);
+}
+
+.create-button-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.recipe-details {
+    background: var(--light-gray);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+.preference-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.preference-section:last-child {
+    margin-bottom: 0;
+}
+
+.preference-section label {
+    display: block;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.recipe-metadata {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+    padding: var(--spacing-md);
+    background: var(--light-gray);
+    border-radius: var(--border-radius-md);
+    justify-content: center;
+}
+
+.recipe-info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* 4.4 Selection UI */
+.cuisine-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.cuisine-option:hover {
+    background: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+}
+
+.cuisine-option img.cuisine-flag {
+    width: 20px;
+    height: 15px;
+    object-fit: contain;
+    border-radius: 3px;
+}
+
+/* ==============================
+   5. Modals
+   ============================== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-height: 400px;
-    overflow: hidden;
-    border-radius: 12px;
-    margin: 1rem 0;
+    height: 100vh;
+    z-index: 2000;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    overflow-y: auto;
+    padding: var(--spacing-lg) 0;
 }
 
-.recipe-image {
+.modal.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    padding-left: 3%;
-    padding-right: 3%;
-    display: block;
-    border-radius: 6%;
+    background: rgba(42, 43, 88, 0.2);
+    backdrop-filter: blur(8px);
 }
 
 .modal-content {
+    position: relative;
+    background: white;
+    border-radius: var(--border-radius-xl);
+    width: 90%;
     max-width: 800px;
-    padding: 1.5rem;
+    margin: auto;
+    box-shadow: var(--shadow-dark);
+    z-index: 2001;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    max-height: none;
+    overflow-y: visible;
+}
+
+.modal.visible .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 15px;
+    position: relative;
+    width: 100%;
+}
+
+.modal-header h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--secondary-color);
+    margin: 0;
 }
 
 .modal-body {
-    margin-top: 1rem;
+    padding: var(--spacing-lg);
+    padding-top: 10px;
+    overflow-y: visible;
+}
+
+.modal-footer {
+    padding: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
 }
 
 .recipe-modal {
@@ -592,31 +713,18 @@ body {
     position-area: center;
 }
 
+/* ==============================
+   6. Recipe Display
+   ============================== */
 .recipe-header {
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-lg);
     text-align: center;
-}
-
-.recipe-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    text-align: center;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-}
-
-.recipe-description {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #666;
-    max-width: 650px;
-    text-align: justify;
-    margin: 0 auto;
 }
 
 .recipe-image-container {
-    margin: 2rem -1.5rem;
+    width: 100%;
     height: 400px;
+    margin: 0;
     overflow: hidden;
     position: relative;
 }
@@ -627,38 +735,23 @@ body {
     object-fit: cover;
 }
 
-.recipe-details {
-    background: #f8f8f8;
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin: 2rem 0;
-}
-
 .recipe-servings {
     font-weight: 600;
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-sm);
 }
 
 .recipe-ingredients {
-    margin-bottom: 2rem;
-}
-
-.recipe-section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--primary-color);
+    margin-bottom: var(--spacing-lg);
 }
 
 .ingredients-list {
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 0.5rem 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm) var(--spacing-lg);
+    margin: var(--spacing-sm) 0;
 }
 
 .ingredients-list li {
@@ -688,7 +781,7 @@ body {
 .instructions-list li {
     position: relative;
     padding-left: 3rem;
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-sm);
     line-height: 1.6;
 }
 
@@ -710,174 +803,9 @@ body {
     font-size: 0.9rem;
 }
 
-/* Updated modal styles */
-.modal-content {
-    background: white;
-    border-radius: 24px;
-    overflow: hidden;
-    max-width: 800px;
-    width: 90%;
-}
-
-.modal-body {
-    padding: 2rem;
-}
-
-/* Update these modal styles */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 2000;
-    display: flex;
-    align-items: flex-start; /* Changed from center to flex-start */
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    overflow-y: auto; /* Added scroll to modal itself */
-    padding: 2rem 0; /* Added vertical padding */
-}
-
-.modal-overlay {
-    position: fixed; /* Changed from absolute to fixed */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(42, 43, 88, 0.2);
-    backdrop-filter: blur(8px);
-}
-
-.modal-content {
-    position: relative;
-    background: white;
-    border-radius: 24px;
-    width: 90%;
-    max-width: 800px;
-    margin: auto; /* Added margin auto */
-    box-shadow: 0 16px 40px rgba(42, 43, 88, 0.1);
-    z-index: 2001;
-    transform: translateY(20px);
-    opacity: 0;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    max-height: none; /* Removed max-height constraint */
-    overflow-y: visible; /* Changed from auto to visible */
-}
-
-.recipe-image-container {
-    width: 100%;
-    height: 400px; /* Fixed height */
-    margin: 0; /* Removed negative margins */
-    overflow: hidden;
-    position: relative;
-}
-
-.recipe-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.modal-body {
-    padding-bottom: 2rem;
-    padding-top: 10px;
-    overflow-y: visible; /* Changed from auto to visible */
-}
-
-/* Added for better spacing */
-.recipe-details {
-    background: #f8f8f8;
-    border-radius: 12px;
-    padding: 2rem;
-    margin: 2rem 0;
-}
-
-/* Added for better mobile experience */
-@media (max-width: 768px) {
-    .modal {
-        padding: 2rem;
-    }
-    
-    .modal-content {
-        width: 95%;
-        margin: 2rem auto;
-    }
-    
-    .recipe-image-container {
-        height: 300px;
-    }
-    
-    .modal-body {
-        padding: 1.5rem;
-    }
-}
-
-.ingredients-list {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Force two columns */
-    gap: 1rem 2rem;
-    margin: 1rem 0;
-}
-
-.ingredients-list li {
-    position: relative;
-    padding-left: 1.5rem;
-    line-height: 1.6;
-}
-
-/* Add these styles for better recipe info presentation */
-.recipe-metadata {
-    display: flex;
-    gap: 2rem;
-    margin: 2rem 0;
-    padding: 1.5rem;
-    background: #f8f8f8;
-    border-radius: 12px;
-    justify-content: center;
-}
-
-.recipe-info-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.info-label {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.info-value {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--secondary-color);
-}
-
-/* Update modal content width for desktop */
-.modal-content {
-    max-width: 800px;
-    width: 90%;
-    margin: 2rem auto;
-}
-
-/* Add more breathing room to the recipe description */
-.recipe-description {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #4A4A4A;
-    margin-bottom: 2rem 0;
-    margin-top: 0px;
-}
-
+/* ==============================
+   7. Navigation & Branding
+   ============================== */
 .brand-logo {
     font-family: 'Space Grotesk';
     font-size: 35px;
@@ -887,135 +815,86 @@ body {
     background: linear-gradient(135deg, orange, #F77F00);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    white-space: nowrap; /* Prevents text from wrapping */
-}
-
-.fusion-indicator img {
-    width: 50px;  
-    height: auto; 
-    /* margin-bottom: 65px;  */
-    position: relative;
-    top: -10px; 
+    white-space: nowrap;
 }
 
 .brand-container {
     display: flex;
-    align-items: flex-end; /* Ensures vertical alignment */
-    justify-content: flex-start; /* Aligns logo & text to the left */
-    gap: 6px; /* Reduce spacing */
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 6px;
     position: absolute;
     top: 20px;
     left: 20px;
-    flex-wrap: nowrap; /* Prevents wrapping */
-    height: auto; /* Ensures it doesn't take unnecessary space */
-    line-height: 1; /* Removes extra vertical spacing */
+    flex-wrap: nowrap;
+    height: auto;
+    line-height: 1;
 }
 
 .brand-logo-img {
-    width: 35px; /* Adjust size for better alignment */
-    height: 35px; /* Set fixed height for consistency */
-    object-fit: contain; /* Prevents stretching */
-    vertical-align: middle; /* Ensures alignment with text */
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    vertical-align: middle;
 }
 
-/* Mobile Responsive Fix */
-@media (max-width: 768px) {
-    .brand-container {
-        top: 10px; /* Adjusts placement */
-        left: 10px;
-        gap: 4px; /* Less spacing for small screens */
-    }
-
-    .brand-logo-img {
-        width: 40px; /* Smaller logo for mobile */
-        height: 40px;
-    }
-
-    .brand-logo {
-        font-size: 30px; /* Adjust text size for consistency */
-    }
-}
-
-.close-btn {
-    background: none;
-    border: none;
-    padding: 2px;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 40px; /* Adjust size */
-    height: 40px;
+.brand-link {
     display: flex;
     align-items: center;
-    justify-content: center;
-    transition: transform 0.2s ease-in-out;
-    font-size: 30px;
+    text-decoration: none;
+    color: inherit;
 }
 
-.close-btn:hover {
-    transform: scale(1.05); /* Adds a hover effect */
+.nav-container {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+}
+
+.about-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.header-container {
+    background-color: var(--secondary-color);
+    padding: 15px 20px;
+}
+
+.brand-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.selection-title {
+    font-family: 'Space Grotesk';
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+/* ==============================
+   8. Utility Classes
+   ============================== */
+.hidden {
+    display: none;
+}
+
+.visible {
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .close-icon {
-    width: 100%; /* Makes the icon fit inside button */
-    height: 100%;
-
-    object-fit: contain;
-}
-.servings-container {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center horizontally */
-    text-align: center; /* Ensure text is centered */
-    margin-bottom: 2rem;
-    font-family: 'Space Grotesk', sans-serif;
-}
-
-/* Remove extra margin for the last element */
-.servings-container:last-child {
-    margin-bottom: 0;
-}
-
-/* Ensure labels are also centered */
-.servings-container label {
-    font-size : 20px; 
-    display: block;
-    font-weight: 600;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-    text-align: center; /* Center text */
-}
-
-/* Skeleton Box */
-.skeleton-box {
-    background: linear-gradient(90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
-    background-size: 400% 100%;
-    animation: loading 1.5s infinite;
-    border-radius: 4px;
-}
-
-/* Specific Skeleton Styles */
-.skeleton-text {
-    height: 18px;
-    width: 80%;
-    margin-bottom: 10px;
-}
-
-.skeleton-image {
-    width: 100%;    
-    height: 300px;
-    border-radius: 8px;
-}
-.skeleton-image-list {
     width: 100%;
-    height: 200px;
-    border-radius: 8px;
-}
-/* Skeleton Animation */
-@keyframes loading {
-    0% { background-position: 100% 0; }
-    100% { background-position: -100% 0; }
+    height: 100%;
+    object-fit: contain;
 }
 
 footer {
@@ -1028,110 +907,6 @@ footer {
     opacity: 0.3;
 }
 
-
-.nav-container {
-    position: absolute;
-    top: 25px;
-    right: 20px;
-}
-
-.about-button {
-    background-color: #F77F00; /* Orange Button */
-    color: white;
-    padding: 10px 18px;
-    background: linear-gradient(135deg, orange, #F77F00);
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background 0.3s ease-in-out;
-}
-
-.about-button:hover {
-    background-color: #E66A00; /* Darker shade on hover */
-}
-
-.brand-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: inherit;
-}
-.about-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: #2A2B58; /* Dark background */
-    color: white;
-}
-.about-content {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
-    text-align: justify;
-    margin-top: 50px;
-}
-
-.about-section h1 {
-    font-size: 32px;
-    margin-bottom: 20px;
-}
-
-.about-section p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.about-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.about-section ul li {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.header-container {
-    background-color: #2A2B58; /* Dark background */
-    padding: 15px 20px;
-}
-
-/* Flexbox container for logo and navigation */
-.brand-nav-container {
-    display: flex;
-    justify-content: space-between; /* Space between logo and button */
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Section Styling */
-.about-section {
-    margin-bottom: 40px;
-}
-
-.about-section h1, .about-section h2 {
-    color: #F77F00;
-}
-
-.about-intro {
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-blockquote {
-    font-style: italic;
-    color: #777;
-    font-size: x-large;
-    border-left: 4px solid #F77F00;
-    padding-left: 10px;
-    margin: 20px 0;
-}
-
-/* Features List */
 .about-features {
     list-style: none;
     padding: 0;
@@ -1142,37 +917,94 @@ blockquote {
     margin-bottom: 10px;
 }
 
-/* Team Styling */
-.team-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.about-section h1, 
+.about-section h2 {
+    color: #F77F00;
 }
 
-.team-member {
-    background: #6D6875;
-    color: white;
-    padding: 19px 15px;
-    margin: 5px;
-    font-size: 18px;
-    border-radius: 5px;
-    font-weight: bold;
+/* ==============================
+   9. Animations
+   ============================== */
+.skeleton-box {
+    background: linear-gradient(90deg, var(--medium-gray) 25%, #f5f5f5 50%, var(--medium-gray) 75%);
+    background-size: 400% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: 4px;
 }
 
-/* Call-to-Action Button */
-.cta-button {
-    display: inline-block;
-    background: linear-gradient(135deg, orange, #F77F00);
-    color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    transition: background 0.3s;
+.skeleton-text {
+    height: 18px;
+    width: 80%;
+    margin-bottom: 10px;
 }
 
-.cta-button:hover {
-    /* background: linear-gradient(135deg, orange, #F77F00); */
-    background-color: #E66A00;
+.skeleton-image {
+    width: 100%;    
+    height: 300px;
+    border-radius: var(--border-radius-sm);
+}
+
+.skeleton-image-list {
+    width: 100%;
+    height: 200px;
+    border-radius: var(--border-radius-sm);
+}
+
+@keyframes loading {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
+
+/* ==============================
+   10. Responsive Styles
+   ============================== */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .fusion-container {
+        flex-direction: column;
+    }
+
+    .cuisine-selector {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .regions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .brand-container {
+        top: 10px;
+        left: 10px;
+        gap: 4px;
+    }
+
+    .brand-logo-img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .brand-logo {
+        font-size: 30px;
+    }
+
+    .modal {
+        padding: var(--spacing-lg);
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: var(--spacing-lg) auto;
+    }
+    
+    .recipe-image-container {
+        height: 300px;
+    }
+    
+    .modal-body {
+        padding: var(--spacing-md);
+    }
 }
